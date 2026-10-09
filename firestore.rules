@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function esAdministrador() {
+      return request.auth != null && request.auth.uid == 'f3QJwNDGpWb0T3W2wYX7JaPpB9J3';
+    }
+    match /inv/main {
+      allow read, write: if esAdministrador();
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

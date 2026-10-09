@@ -1,22 +1,18 @@
-# Bon House - Inventario
+# Bon House · Inventario con Firebase
 
-Sistema de inventario con presentaciones (fardo, paquete, unidad), conteos por fecha,
-movimientos, compras/facturas y PDF por proveedor. Es una página estática: no necesita servidor.
+Se mantiene el diseño y la lógica del inventario original. La nueva versión incorpora inicio de sesión con Firebase Authentication y sincronización del documento `inv/main` en Firestore.
 
-## Subirlo a GitHub (con GitHub Pages)
-1. Crea un repositorio nuevo en github.com (por ejemplo `bonhouse-inventario`).
-2. Sube estos archivos a la raíz: `index.html`, `manifest.json`, `sw.js`, `icon-192.png`, `icon-512.png`.
-3. En el repositorio: Settings > Pages > Source: "Deploy from a branch" > Branch `main` / carpeta `/ (root)` > Save.
-4. En un par de minutos tendrás el enlace: `https://TU-USUARIO.github.io/bonhouse-inventario/`.
+## Configuración
+1. Crea un proyecto **nuevo** en Firebase (no reutilices TimeCore). Agrega una app Web y copia los valores al archivo `firebase-config.js`.
+2. Activa Authentication > Método de acceso > Correo electrónico/contraseña. Crea manualmente las cuentas autorizadas en Authentication > Usuarios.
+3. Copia los UID de esas cuentas y reemplaza `REEMPLAZAR_UID_ADMIN` en `firestore.rules`. Puedes añadir más UID separados por comas.
+4. Crea la base de datos Firestore. Copia las reglas desde `firestore.rules` y publícalas. **Nunca** uses reglas abiertas.
+5. Sube a GitHub Pages todos los archivos de esta carpeta, incluyendo `firebase-config.js`.
+6. Inicia sesión. Antes de importar, entra a la versión anterior en el dispositivo que tenga tus datos, ve a **Movimientos y respaldo > Descargar respaldo**. En la versión nueva, en ese mismo dispositivo y navegador, pulsa **Subir datos de este dispositivo** para migrarlos. Verifica que aparezcan en un segundo dispositivo.
 
-## Usarlo en el celular
-Abre el enlace en Chrome > menú (tres puntos) > "Instalar app" o "Agregar a pantalla de inicio".
-
-## Convertirlo en APK
-Con el enlace de GitHub Pages ya publicado, entra a pwabuilder.com, pega el enlace y descarga el paquete de Android.
-
-## Importante
-- Los datos se guardan en el navegador de cada dispositivo (no se comparten entre celulares).
-  Usa "Movimientos y respaldo" > "Descargar respaldo" para guardar copias y pasarlas a otro equipo.
-- La sincronización en la nube solo existe dentro de Claude; en GitHub funciona sin ella.
-- Los PDF necesitan internet la primera vez (cargan la librería jsPDF desde cdnjs).
+## Advertencias importantes
+- El botón **Subir datos de este dispositivo** reemplaza la copia en Firebase: úsalo solo para migración o recuperación intencional.
+- El inventario usa un documento compartido: si dos personas editan simultáneamente, la última escritura puede sobrescribir cambios. No es todavía una solución transaccional multiusuario para uso intensivo.
+- Firestore tiene un límite de 1 MiB por documento. Si los historiales o facturas crecen, habrá que separar registros en colecciones.
+- No se sincronizan imágenes binarias de facturas; el ZIP original contiene referencias/datos del sistema según su implementación.
+- Antes de desplegar, prueba con un respaldo. No elimines datos originales.

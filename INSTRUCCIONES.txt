@@ -1,0 +1,11 @@
+BON HOUSE - INVENTARIO FIREBASE
+Proyecto Firebase: inventario-57faa
+
+1. ANTES DE PUBLICAR: Abre el inventario original en el navegador y computadora que contienen tus productos. Usa la opción Descargar respaldo. Conserva el respaldo en lugar seguro.
+2. Ya publicaste reglas de administrador. Las reglas incluidas en firestore.rules son más restrictivas: permiten únicamente al UID autorizado acceder a inv/main. Puedes publicarlas en Firebase > Firestore > Reglas.
+3. Publica los archivos de este ZIP en un repositorio/sitio de prueba separado del inventario original. NO reemplaces el original todavía.
+4. Entra al sitio de prueba e inicia sesión con la cuenta creada en Firebase Authentication.
+5. En el MISMO navegador donde están los datos originales, usa 'Subir datos de este dispositivo' solo tras comprobar que la copia local contiene tus productos. Esto reemplaza inv/main en Firebase.
+6. Verifica productos, cantidades, proveedores, movimientos y reportes desde otro dispositivo antes de usarlo en producción.
+
+PRECAUCIONES: No subas el respaldo privado a GitHub. Esta base usa un único documento compartido (límite 1 MiB, posibles conflictos al editar simultáneamente). No garantiza sincronización de fotos de facturas. No borres el inventario anterior.
