@@ -1,0 +1,12 @@
+BON HOUSE INVENTARIO - VERSION RESPONSIVE
+
+1. Realiza un respaldo del inventario antes de reemplazar archivos.
+2. Sube TODOS los archivos del ZIP a la raiz del mismo repositorio GitHub de prueba, reemplazando los anteriores.
+3. Abre GitHub Pages desde Chrome Android o Safari iPhone.
+4. Inicia sesion con tu cuenta Firebase; los permisos de Firestore no cambian.
+5. No pulses Subir datos de este dispositivo si no confirmaste que el inventario local esta completo.
+6. Si ves la version antigua, cierra y abre la pagina, o borra datos del sitio despues de guardar un respaldo.
+
+Cambios: barra superior adaptable, pestanas desplazables, tarjetas, filtros, formularios, modales, botones tactiles y pantalla de login.
+
+NOTA: Esta version modifica presentacion CSS, no la estructura de Firestore ni la logica de productos. Comprueba en telefono real.
